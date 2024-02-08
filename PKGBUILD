@@ -16,7 +16,7 @@ conflicts=("$_name<1:5.111" "kholidays5")
 replaces=("$_name<1:5.111" "kholidays5")
 provides=("kholidays5")
 groups=(kf5)
-source=(https://download.kde.org/stable/frameworks/${pkgver%.*}/$_name-$pkgver.tar.xz)
+source=(https://download.kde.org/stable/frameworks/${pkgver%.*}/$_name-$pkgver.tar.xz git+https://github.com/0xcccccccccccc/kholidays_cn.git)
 sha256sums=('SKIP')
 
 build() {
