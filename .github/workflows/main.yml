@@ -1,6 +1,7 @@
 name: Daily Build
 
 on:
+  push:
   schedule:
     - cron: '0 18 * * *' # Runs at 00:00 UTC every day
 
