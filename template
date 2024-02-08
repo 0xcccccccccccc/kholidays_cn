@@ -1,0 +1,55 @@
+::
+:: Country:  China
+::
+:: Language: Simplified Chinese
+::
+:: Author:   Patrick Nagel <mail@patrick-nagel.net> Ha Ma <0xcccc@bupt.cn>
+::
+:: Updated:  {build_date}
+::
+:: Source:   https://github.com/0xcccccccccccc/kholidays_cn
+::
+
+:: Metadata
+country     "CN"
+language    "zh_CN"
+:name        "optional - defaults to country name"
+:description "中华人民共和国法定节假日"
+
+:: Public Holidays
+: New Year
+"元旦"                       public on january 1
+:Labor Day
+"劳动节"                     public on may 1
+:National Day
+"国庆节"                     public on october 1
+
+:: Religious
+
+:: Financial
+
+:: Cultural
+:International Women's Day
+"国际妇女节"                  cultural on march 8
+:Arbor Day
+"植树节"                     cultural on march 12
+:Youth Day
+"青年节"                     cultural on may 4
+:Children's Day
+"六一儿童节"                  cultural on june 1
+:CPC Founding Day
+"建党节"                     cultural on july 1
+:Army Day
+"建军节"                     cultural on august 1
+
+:: School
+
+:: Daylight Saving
+
+:: Seasons
+
+:: Name Days
+
+
+:: (Lunar Holidays & Lieu) 农历假期及调休
+{extra_lines}
