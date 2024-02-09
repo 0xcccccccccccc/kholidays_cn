@@ -17,8 +17,8 @@ replaces=("$_name<1:5.111" "kholidays5")
 provides=("kholidays5")
 groups=(kf5)
 source=(
-    "https://download.kde.org/stable/frameworks/${pkgver%.*}/$_name-$pkgver.tar.xz"
-    "https://github.com/0xcccccccccccc/kholidays_cn/releases/latest/download/holiday_cn_zh-cn"{,.sig}
+    https://download.kde.org/stable/frameworks/${pkgver%.*}/$_name-$pkgver.tar.xz
+    https://github.com/0xcccccccccccc/kholidays_cn/releases/latest/download/holiday_cn_zh-cn
 )
 sha256sums=('be4af6625e80852cb7bc8cdbe2bdd56ccf3868644cbfb87d3494964f5f6f28a7'
             'SKIP')
