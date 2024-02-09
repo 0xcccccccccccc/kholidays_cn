@@ -27,13 +27,42 @@ jobs:
       run: |
         python main.py
 
+    - name: Check if holiday_cn_zh-cn exists
+      id: check-file
+      run: |
+        if [ -e "holiday_cn_zh-cn" ]; then
+          echo "::set-output name=exists::true"
+        else
+          echo "::set-output name=exists::false"
+        fi
+
+    - name: Download latest release file
+      id: download
+      if: steps.check-file.outputs.exists == 'true'
+      uses: wei/curl@master
+      with:
+        args: -L https://github.com/0xcccccccccccc/kholidays_cn/releases/latest/download/holiday_cn_zh-cn -o latest_holiday_cn_zh-cn
+
+    - name: Compare files (ignoring the first 8 lines)
+      id: compare
+      if: steps.download.outputs.status == 'succeeded'
+      run: |
+        if cmp <(tail -n +9 holiday_cn_zh-cn) <(tail -n +9 latest_holiday_cn_zh-cn); then
+          echo "Files are identical after ignoring the first 8 lines, skipping release."
+          echo "::set-output name=skip::true"
+        else
+          echo "Files differ after ignoring the first 8 lines, proceeding with release."
+          echo "::set-output name=skip::false"
+        fi
+
     - name: Get the date
       id: get-date
       run: echo "::set-output name=today::$(date +'%Y-%m-%d')"
+      if: steps.compare.outputs.skip != 'true'
 
     - name: Create Release
       uses: softprops/action-gh-release@v1
-      if: success()
+      if: steps.compare.outputs.skip != 'true'
       with:
         files: holiday_cn_zh-cn
         tag_name: ${{ steps.get-date.outputs.today }}
