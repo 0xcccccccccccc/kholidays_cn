@@ -12,6 +12,6 @@
 
 ## TODO
 
-- CheckSum校验
+- ~~CheckSum校验~~
 - 从其他来源补充cultural日期（七夕重阳等不放假节日）
-- Actions自动Push到主线仓库
+- ~~Actions自动Push到主线仓库~~
