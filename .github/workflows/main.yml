@@ -31,11 +31,23 @@ jobs:
       id: get-date
       run: echo "::set-output name=today::$(date +'%Y-%m-%d')"
 
+    - name: Import GPG key
+      uses: crazy-max/ghaction-import-gpg@v3
+      with:
+        gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
+        passphrase: ${{ secrets.GPG_PASSPHRASE }}
+
+    - name: Sign File
+      run: |
+        gpg --batch --yes --detach-sign --armor --output holiday_cn_zh-cn.sig holiday_cn_zh-cn
+
     - name: Create Release
       uses: softprops/action-gh-release@v1
       if: success()
       with:
-        files: holiday_cn_zh-cn
+        files: |
+          holiday_cn_zh-cn
+          holiday_cn_zh-cn.sig
         tag_name: ${{ steps.get-date.outputs.today }}
         release_name: Release ${{ steps.get-date.outputs.today }}
       env:
