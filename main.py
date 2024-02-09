@@ -16,7 +16,7 @@ def wide_char_len(s: str):
         if ord(ch) in range(0x20, 0x7f):
             acc += 1
         else:
-            acc += 1.7
+            acc += 1.6
     return int(math.ceil(acc))
 
 
