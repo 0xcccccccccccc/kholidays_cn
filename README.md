@@ -6,7 +6,7 @@
 
 ## 测试
 
-目前Archlinux的主线KDE停留在QT5阶段，上游KHoliday更新不一定会backport到kholiday5上，因此这里提供一个PKGBUILD，makepkg产物（kholiday5-cn）可以替代kholiday5。安装后日历即可显示2004-2024的节假日。
+目前Archlinux的主线KDE停留在QT5阶段，上游KHoliday更新不一定会backport到kholiday5上，因此这里提供一个PKGBUILD模板（make_pkgbuild.py），makepkg产物（kholiday5-cn）可以替代kholiday5。安装后日历即可显示2004-2024的节假日。
 
 你也可以到[aur](https://aur.archlinux.org/packages/kholidays5-cn)找到这个包
 
