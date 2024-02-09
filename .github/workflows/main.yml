@@ -47,7 +47,7 @@ jobs:
     - name: Get the date
       if: env.skip == 'false'
       run: |
-        echo "today=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
+        echo "today=$(date +'%Y%m%d')" >> $GITHUB_ENV
 
     - name: Create Release
       uses: softprops/action-gh-release@v1
