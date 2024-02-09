@@ -31,7 +31,7 @@ jobs:
       id: download
       uses: wei/curl@master
       with:
-        args: -L https://github.com/0xcccccccccccc/kholidays_cn/releases/latest/download/holiday_cn_zh-cn -o latest_holiday_cn_zh-cn
+        args: -L https://github.com/${{ secrets.AUR_USERNAME }}/kholidays_cn/releases/latest/download/holiday_cn_zh-cn -o latest_holiday_cn_zh-cn
 
     - name: Compare files (ignoring the first 8 lines)
       id: compare
