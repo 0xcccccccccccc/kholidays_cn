@@ -38,23 +38,23 @@ jobs:
       run: |
         if cmp <(tail -n +9 holiday_cn_zh-cn) <(tail -n +9 latest_holiday_cn_zh-cn); then
           echo "Files are identical after ignoring the first 8 lines, skipping release."
-          echo "::set-output name=skip::true"
+          echo "skip=true" >> $GITHUB_ENV
         else
           echo "Files differ after ignoring the first 8 lines, proceeding with release."
-          echo "::set-output name=skip::false"
+          echo "skip=false" >> $GITHUB_ENV
         fi
 
     - name: Get the date
-      id: get-date
-      run: echo "::set-output name=today::$(date +'%Y-%m-%d')"
-      if: steps.compare.outputs.skip != 'true'
+      if: env.skip == 'false'
+      run: |
+        echo "today=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
 
     - name: Create Release
       uses: softprops/action-gh-release@v1
-      if: steps.compare.outputs.skip != 'true'
+      if: env.skip == 'false'
       with:
         files: holiday_cn_zh-cn
-        tag_name: ${{ steps.get-date.outputs.today }}
-        release_name: Release ${{ steps.get-date.outputs.today }}
+        tag_name: ${{ env.today }}
+        release_name: Release ${{ env.today }}
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
