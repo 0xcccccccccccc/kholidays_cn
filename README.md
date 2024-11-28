@@ -6,11 +6,11 @@
 
 ## 测试
 
-这里提供一个PKGBUILD模板（make_pkgbuild.py），makepkg产物（kholiday5-cn）可以替代kholiday5。安装后日历即可显示2004-今年的节假日，只要chinese-calendar还更新，这个仓库就能自动跟上。
+**目前archlinux已经不再需要kholidays5，不需要手动安装这里提供的包。**
+
+这里提供一个PKGBUILD模板（make_pkgbuild.py），makepkg产物（kholiday5-cn）可以替代kholiday5，安装后日历即可显示2004-今年的节假日。
 
 你也可以到[aur](https://aur.archlinux.org/packages/kholidays5-cn)找到这个包
-
-目前archlinux已经不再需要kholidays5，不需要手动安装这里提供的包。
 
 ## TODO
 
